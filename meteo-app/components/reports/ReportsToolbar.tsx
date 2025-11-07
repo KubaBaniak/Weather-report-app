@@ -57,64 +57,70 @@ export default function ReportsToolbar({
         </Button>
       </div>
 
-      <div className="grid w-full grid-cols-1 gap-2 sm:w-auto sm:grid-cols-3 justify-items-end">
+      <div className="grid w-full gap-2 sm:w-auto md:grid-cols-3 justify-items-center">
         <Input
           placeholder="Filter by city"
           value={cityFilter}
           onChange={(e) => onCityFilterAction(e.target.value)}
+          className="w-full"
         />
 
-        <Select
-          value={sortKey}
-          onValueChange={(v) => onSortKeyAction(v as SortKey)}
-        >
-          <SelectTrigger aria-label="Filter by">
-            <SelectValue placeholder="Filter by" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="date">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>Date</span>
-              </div>
-            </SelectItem>
-            <SelectItem value="city">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span>City</span>
-              </div>
-            </SelectItem>
-            <SelectItem value="temperature">
-              <div className="flex items-center gap-2">
-                <Thermometer className="w-4 h-4" />
-                <span>Temperature (K)</span>
-              </div>
-            </SelectItem>
-          </SelectContent>
-        </Select>
+        <div className="grid w-full grid-cols-2 gap-2 md:contents">
+          <Select
+            value={sortKey}
+            onValueChange={(v) => onSortKeyAction(v as SortKey)}
+          >
+            <SelectTrigger aria-label="Filter by" className="w-full sm:w-auto">
+              <SelectValue placeholder="Filter by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="date">
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Date</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="city">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  <span>City</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="temperature">
+                <div className="flex items-center gap-2">
+                  <Thermometer className="w-4 h-4" />
+                  <span>Temperature (K)</span>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
 
-        <Select
-          value={sortDir}
-          onValueChange={(v) => onSortDirAction(v as SortDir)}
-        >
-          <SelectTrigger aria-label="Sort direction">
-            <SelectValue placeholder="Direction" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="asc">
-              <div className="flex items-center gap-2">
-                <ArrowUp className="w-4 h-4" />
-                <span>Ascending</span>
-              </div>
-            </SelectItem>
-            <SelectItem value="desc">
-              <div className="flex items-center gap-2">
-                <ArrowDown className="w-4 h-4" />
-                <span>Descending</span>
-              </div>
-            </SelectItem>
-          </SelectContent>
-        </Select>
+          <Select
+            value={sortDir}
+            onValueChange={(v) => onSortDirAction(v as SortDir)}
+          >
+            <SelectTrigger
+              aria-label="Sort direction"
+              className="w-full sm:w-auto"
+            >
+              <SelectValue placeholder="Direction" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="asc">
+                <div className="flex items-center gap-2">
+                  <ArrowUp className="w-4 h-4" />
+                  <span>Ascending</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="desc">
+                <div className="flex items-center gap-2">
+                  <ArrowDown className="w-4 h-4" />
+                  <span>Descending</span>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
     </div>
   );
