@@ -35,7 +35,7 @@ export default function AddReportDialog({
 
   const [city, setCity] = useState("");
   const [temperature, setTemperature] = useState<string>("");
-  const [unit, setUnit] = useState<string>("C");
+  const [unit, setUnit] = useState<string>("K");
 
   const [date, setDate] = useState<string>(() => {
     const now = new Date();
@@ -66,7 +66,7 @@ export default function AddReportDialog({
       setOpen(false);
       setCity("");
       setTemperature("");
-      setUnit("C");
+      setUnit("K");
       setDate(() => {
         const now = new Date();
         const year = now.getFullYear();
